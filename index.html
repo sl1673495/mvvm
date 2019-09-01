@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mvvm</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>a的值是 {{a.a}} </p>
+    <p>b的值是{{b}}</p>
+    <p>计算属性a + b的值是{{hello}}</p>
+    <label for="a">编辑a</label>
+    <input id="a" type="text" v-model="a.a">
+  </div>
+  <script src="./mvvm.js"></script>
+  <script>
+    const mvvm = new Mvvm({
+      el: '#app',
+      data: { a: { a: 3 }, b: 2 },
+      computed: {
+        hello() {
+          return Number(this.a.a) + this.b
+        }
+      }
+    })
+    console.log('mvvm: ', mvvm);
+  </script>
+</body>
+
+</html>
